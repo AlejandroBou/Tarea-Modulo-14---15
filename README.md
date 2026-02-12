@@ -24,6 +24,9 @@ Se ha utilizado un archivo `docker-compose.yml` para levantar tres servicios int
 
 > **Captura 1: Estado y Gestión de los Contenedores**
 > ![Panel de Control](Cambios%20en%20odoo.png)
+>
+> > **Captura 2: Consulta SQL**
+> ![Panel de Control](Consulta%20SQL.png)
 
 ### 2. Carga del Módulo Personalizado
 Para integrar el módulo `fichaje` en el servidor, se emplearon comandos de terminal para mover el código al volumen persistente de Odoo:
