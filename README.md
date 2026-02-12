@@ -24,7 +24,8 @@ Se ha utilizado un archivo `docker-compose.yml` para levantar tres servicios int
 
 > **Captura 1: Estado de los Contenedores**
 > *(Añadir captura de la interfaz donde se ven odoo, db y pgadmin en verde)*
-> ![Panel de Control](./capturas/01_contenedores_ok.png)
+>  ![Panel de Control](Cambios en odoo.png)
+> ![Panel de Control](Consulta SQL.png)
 
 ### 2. Carga del Módulo Personalizado
 Para integrar el módulo `fichaje` en el servidor, se siguieron los siguientes comandos:
