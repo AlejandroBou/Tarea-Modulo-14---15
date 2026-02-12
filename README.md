@@ -1,50 +1,36 @@
 # 🕒 Módulo de Fichaje de Asistencia - Odoo 17
 
-Este módulo ha sido desarrollado para gestionar de manera eficiente el registro de jornadas laborales (entradas y salidas) dentro del ecosistema Odoo 17.
+Este módulo ha sido desarrollado para gestionar de manera eficiente el registro de jornadas laborales (entradas, descansos y salidas) dentro del ecosistema **Odoo 17**, utilizando una arquitectura profesional basada en contenedores.
 
 ## 👤 Autor
-* **Mª del Carmen Sánchez Ruiz** 🎓
+* **Alejandro Martinez Bou** 🎓
 
 ## 📋 Descripción del Proyecto
-El objetivo de esta aplicación es proporcionar una herramienta sencilla para que los empleados registren su asistencia. El sistema garantiza la persistencia de los datos y una interfaz integrada con el resto de módulos de Odoo.
+La aplicación permite a los empleados registrar su asistencia de forma sencilla. El sistema garantiza la integridad de los datos, permitiendo seleccionar el empleado, la fecha/hora y el tipo de acción, con persistencia total en una base de datos relacional.
 
 ## 🛠️ Tecnologías y Arquitectura
-* **ERP**: Odoo 17 (Community Edition). 🖥️
-* **Lenguajes**: Python (Lógica de negocio) y XML (Vistas e Interfaz). 🐍
-* **Base de Datos**: PostgreSQL 15. 🐘
-* **Despliegue**: Docker y Docker Compose para una infraestructura ágil. 🐋
-* **Gestión de DB**: pgAdmin 4 para auditoría de tablas. 📊
+* **ERP**: Odoo 17 (Community Edition) 🖥️
+* **Lenguajes**: Python (Lógica de negocio) y XML (Vistas e Interfaz) 🐍
+* **Base de Datos**: PostgreSQL 15 🐘
+* **Infraestructura**: Despliegue mediante **Docker** y **Docker Compose** 🐋
+* **Gestión de DB**: pgAdmin 4 para auditoría de tablas 📊
 
-## 🚀 Instalación y Configuración
+---
 
-### 1. Despliegue de Contenedores
-Asegúrate de tener instalado Docker y ejecuta desde la terminal:
+## 🚀 Proceso de Instalación y Despliegue
+
+### 1. Despliegue de la Infraestructura
+Se ha utilizado un archivo `docker-compose.yml` para levantar tres servicios interconectados: el servidor de Odoo, la base de datos PostgreSQL y la herramienta de gestión pgAdmin.
+
+> **Captura 1: Estado de los Contenedores**
+> *(Añadir captura de la interfaz donde se ven odoo, db y pgadmin en verde)*
+> ![Panel de Control](./capturas/01_contenedores_ok.png)
+
+### 2. Carga del Módulo Personalizado
+Para integrar el módulo `fichaje` en el servidor, se siguieron los siguientes comandos:
 ```bash
-docker-compose up -d
-Instalación del Módulo
-Para cargar los archivos en el servidor Odoo:
-
-Copia los archivos al volumen de addons:
-
-Bash
+# Copia de archivos al volumen del contenedor
 docker cp . odoo:/mnt/extra-addons/fichaje
-Reinicia el contenedor para que Odoo detecte los cambios:
 
-Bash
+# Reinicio del servicio para detectar cambios
 docker restart odoo
-En Odoo, accede a Aplicaciones, quita el filtro predeterminado y busca "Fichaje de Asistencia" para instalarlo.
-
-🔒 Seguridad y Acceso
-Se ha implementado el archivo ir.model.access.csv para definir los permisos de lectura, creación y escritura del modelo fichaje.asistencia, permitiendo que el menú sea visible para los usuarios autorizados. 🔑
-
-📂 Estructura del Módulo
-models/: Definición de la lógica y campos (employee_id, fecha_fichaje, tipo_accion).
-
-views/: Diseño de las interfaces de usuario (vistas de tipo list y form).
-
-security/: Reglas de acceso al sistema.
-
-__manifest__.py: Metadatos e inventario del módulo.
-
-
-
