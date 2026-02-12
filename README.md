@@ -22,16 +22,15 @@ La aplicación permite a los empleados registrar su asistencia de forma sencilla
 ### 1. Despliegue de la Infraestructura
 Se ha utilizado un archivo `docker-compose.yml` para levantar tres servicios interconectados: el servidor de Odoo, la base de datos PostgreSQL y la herramienta de gestión pgAdmin.
 
-> **Captura 1: Estado de los Contenedores**
-
-![Panel de Control](Cambios en odoo.png)
-![Panel de Control](Consulta SQL.png)
+> **Captura 1: Estado y Gestión de los Contenedores**
+> ![Panel de Control](Cambios%20en%20odoo.png)
 
 ### 2. Carga del Módulo Personalizado
-Para integrar el módulo `fichaje` en el servidor, se siguieron los siguientes comandos:
+Para integrar el módulo `fichaje` en el servidor, se emplearon comandos de terminal para mover el código al volumen persistente de Odoo:
+
 ```bash
-# Copia de archivos al volumen del contenedor
+# Copiar el código fuente al contenedor de Odoo
 docker cp . odoo:/mnt/extra-addons/fichaje
 
-# Reinicio del servicio para detectar cambios
+# Reiniciar el servicio para que Odoo reconozca el nuevo módulo
 docker restart odoo
